@@ -1,0 +1,1376 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Scan Factura — Digitaliza tus facturas en segundos</title>
+  <meta name="description" content="Olvídate del papeleo. Escanea tus facturas con tu celular y deja que la inteligencia artificial haga el resto." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 500'><rect fill='%231976D2' width='500' height='500' rx='100'/><path d='M107 112.5C107 109.739 109.239 107.5 112 107.5H170C172.761 107.5 175 109.739 175 112.5V142.5C175 145.261 172.761 147.5 170 147.5H112C109.239 147.5 107 145.261 107 142.5V112.5Z' stroke='white' stroke-width='15' fill='none'/><path d='M330 112.5C330 109.739 332.239 107.5 335 107.5H393C395.761 107.5 398 109.739 398 112.5V142.5C398 145.261 395.761 147.5 393 147.5H335C332.239 347.5 330 145.261 330 142.5V112.5Z' stroke='white' stroke-width='15' fill='none'/><path d='M145 265H145C145 262.239 147.239 260 150 260H355C357.761 260 360 262.239 360 265V265C360 267.761 357.761 270 355 270H150C147.239 270 145 267.761 145 265V265Z' fill='white'/><path d='M145 330H145C145 327.239 147.239 325 150 325H355C357.761 325 360 327.239 360 330V330C360 332.761 357.761 335 355 335H150C147.239 335 145 332.761 145 330V330Z' fill='white'/><path d='M107 265H107C107 259.477 111.477 255 117 255H130C135.523 255 140 259.477 140 265V278C140 283.523 135.523 288 130 288H117C111.477 288 107 283.523 107 278V265V265Z' stroke='white' stroke-width='10' fill='none'/><path d='M180 150L180 147.5C180 147.5 188 143 197.5 143C202.5 143 216 143 220.5 147.5L220.5 184.5C220.5 184.5 220.5 191 225 195.5C229.5 200 237.5 203.5 250 203.5C262.5 203.5 272.5 203.5 280.5 196.5C288.5 189.5 290.5 181 290.5 181V148C290.5 148 299 143 307 143C315 143 325 147.5 325 147.5V147.5' stroke='white' stroke-width='15' fill='none'/><path d='M145 380H355' stroke='white' stroke-width='8' stroke-linecap='round'/></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --primary: #1976D2;
+      --primary-dark: #1565C0;
+      --secondary: #43A047;
+      --accent: #FF5722;
+      --bg: #FFFFFF;
+      --text: #0F172A;
+      --text-muted: #64748B;
+      --border: #E2E8F0;
+      --card-bg: #F8F9FA;
+      --gradient-start: #E3F2FD;
+      --gradient-end: #BBDEFB;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: linear-gradient(180deg, var(--gradient-start) 0%, var(--bg) 100%);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ============================================
+       ANIMATIONS & TRANSITIONS
+    ============================================ */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-60px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes slideInRight {
+      from {
+        opacity: 0;
+        transform: translateX(60px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes scaleIn {
+      from {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .animate-on-scroll.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ============================================
+       HEADER & NAVIGATION
+    ============================================ */
+    header {
+      padding: 24px 0;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      animation: slideDown 0.6s ease-out;
+    }
+
+    @keyframes slideDown {
+      from {
+        transform: translateY(-100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .nav-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      text-decoration: none;
+      transition: transform 0.3s ease;
+    }
+
+    .brand:hover {
+      transform: translateX(5px);
+    }
+
+    .logo-container {
+      width: 56px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(25, 118, 210, 0.25);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .brand:hover .logo-container {
+      transform: rotate(5deg) scale(1.1);
+      box-shadow: 0 12px 32px rgba(25, 118, 210, 0.4);
+    }
+
+    .logo-container svg {
+      transition: transform 0.3s ease;
+    }
+
+    .brand:hover .logo-container svg {
+      transform: scale(1.1);
+    }
+
+    .brand-text h1 {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 2px;
+    }
+
+    .brand-text p {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    nav {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+
+    nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-weight: 500;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--primary);
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+      padding: 12px 24px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      display: inline-block;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(25, 118, 210, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+      transition: left 0.5s;
+    }
+
+    .btn-primary:hover::before {
+      left: 100%;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 12px 28px rgba(25, 118, 210, 0.5);
+    }
+
+    .btn-primary:active {
+      transform: translateY(-1px) scale(1.02);
+    }
+
+    .btn-secondary {
+      background: white;
+      color: var(--primary);
+      padding: 12px 24px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      display: inline-block;
+      border: 2px solid var(--border);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--primary);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px rgba(25, 118, 210, 0.2);
+    }
+
+    /* ============================================
+       HERO SECTION
+    ============================================ */
+    .hero {
+      padding: 100px 0 80px;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero h2 {
+      font-size: 64px;
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 24px;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: fadeInUp 0.8s ease-out;
+      text-shadow: 0 4px 20px rgba(25, 118, 210, 0.1);
+    }
+
+    .hero p {
+      font-size: 24px;
+      color: var(--text-muted);
+      max-width: 700px;
+      margin: 0 auto 40px;
+      line-height: 1.6;
+      animation: fadeInUp 0.8s ease-out 0.2s both;
+    }
+
+    .cta-group {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      animation: fadeInUp 0.8s ease-out 0.4s both;
+    }
+
+    .trust-badge {
+      margin-top: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+      animation: fadeIn 1s ease-out 0.6s both;
+    }
+
+    .badge-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--text-muted);
+      font-size: 15px;
+      padding: 12px 24px;
+      background: white;
+      border-radius: 50px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s ease;
+    }
+
+    .badge-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    }
+
+    .badge-icon {
+      width: 24px;
+      height: 24px;
+      color: var(--secondary);
+    }
+
+    /* ============================================
+       PRODUCTS SECTION - NUEVA SECCIÓN DESTACADA
+    ============================================ */
+    .products-section {
+      padding: 100px 0;
+      background: white;
+      position: relative;
+    }
+
+    .products-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border), transparent);
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 72px;
+    }
+
+    .section-tag {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      padding: 8px 20px;
+      border-radius: 50px;
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 16px rgba(25, 118, 210, 0.3);
+      animation: pulse 2s infinite;
+    }
+
+    .section-header h3 {
+      font-size: 48px;
+      font-weight: 800;
+      margin-bottom: 20px;
+      color: var(--text);
+      letter-spacing: -0.5px;
+    }
+
+    .section-header p {
+      font-size: 20px;
+      color: var(--text-muted);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 40px;
+      margin-top: 60px;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 28px;
+      padding: 48px;
+      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08);
+      border: 2px solid transparent;
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .product-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      transform: scaleX(0);
+      transition: transform 0.5s ease;
+    }
+
+    .product-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .product-card:hover {
+      transform: translateY(-12px) scale(1.02);
+      box-shadow: 0 24px 60px rgba(25, 118, 210, 0.25);
+      border-color: var(--primary);
+    }
+
+    .product-icon {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 28px;
+      box-shadow: 0 12px 32px rgba(25, 118, 210, 0.3);
+      transition: all 0.4s ease;
+    }
+
+    .product-card:hover .product-icon {
+      transform: rotate(5deg) scale(1.1);
+      box-shadow: 0 16px 48px rgba(25, 118, 210, 0.5);
+    }
+
+    .product-icon svg {
+      width: 44px;
+      height: 44px;
+    }
+
+    .product-card h4 {
+      font-size: 26px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: var(--text);
+    }
+
+    .product-card .product-description {
+      font-size: 16px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 28px;
+    }
+
+    .product-features {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 32px 0;
+    }
+
+    .product-features li {
+      display: flex;
+      align-items: start;
+      gap: 12px;
+      margin-bottom: 14px;
+      font-size: 15px;
+      color: var(--text-muted);
+      transition: all 0.3s ease;
+    }
+
+    .product-features li:hover {
+      color: var(--text);
+      transform: translateX(8px);
+    }
+
+    .product-features li::before {
+      content: '✓';
+      color: var(--secondary);
+      font-weight: 700;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .product-cta {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      padding: 16px 32px;
+      border-radius: 14px;
+      text-decoration: none;
+      font-weight: 700;
+      display: inline-block;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 8px 24px rgba(25, 118, 210, 0.35);
+    }
+
+    .product-cta:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 40px rgba(25, 118, 210, 0.5);
+    }
+
+    /* ============================================
+       AI ASSISTANT SECTION
+    ============================================ */
+    .ai-assistant-section {
+      padding: 100px 0;
+      background: linear-gradient(135deg, var(--primary) 0%, #1565C0 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .ai-assistant-section::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+      border-radius: 50%;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .ai-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .ai-content {
+      color: white;
+    }
+
+    .ai-stats-card {
+      background: white;
+      border-radius: 32px;
+      padding: 48px;
+      box-shadow: 0 32px 80px rgba(0,0,0,0.3);
+      transition: all 0.5s ease;
+    }
+
+    .ai-stats-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 40px 100px rgba(0,0,0,0.4);
+    }
+
+    /* ============================================
+       HOW IT WORKS
+    ============================================ */
+    .how-it-works {
+      padding: 100px 0;
+      background: white;
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+      margin-top: 60px;
+    }
+
+    .step-card {
+      background: var(--card-bg);
+      border-radius: 24px;
+      padding: 48px 36px;
+      text-align: center;
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      border: 2px solid transparent;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    }
+
+    .step-card:hover {
+      transform: translateY(-16px) scale(1.03);
+      box-shadow: 0 24px 60px rgba(25, 118, 210, 0.25);
+      border-color: var(--primary);
+      background: white;
+    }
+
+    .step-number {
+      width: 72px;
+      height: 72px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      font-weight: 800;
+      margin: 0 auto 28px;
+      box-shadow: 0 12px 32px rgba(25, 118, 210, 0.35);
+      transition: all 0.4s ease;
+    }
+
+    .step-card:hover .step-number {
+      transform: rotate(360deg) scale(1.15);
+      box-shadow: 0 16px 48px rgba(25, 118, 210, 0.5);
+    }
+
+    .step-card h4 {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: var(--text);
+    }
+
+    .step-card p {
+      color: var(--text-muted);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    /* ============================================
+       BENEFITS SECTION
+    ============================================ */
+    .benefits {
+      padding: 100px 0;
+      background: var(--gradient-start);
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 32px;
+      margin-top: 60px;
+    }
+
+    .benefit-card {
+      background: white;
+      border-radius: 24px;
+      padding: 40px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      border: 2px solid transparent;
+    }
+
+    .benefit-card:hover {
+      box-shadow: 0 24px 60px rgba(25, 118, 210, 0.2);
+      transform: translateY(-12px);
+      border-color: var(--primary);
+    }
+
+    .benefit-icon {
+      width: 64px;
+      height: 64px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 28px;
+      margin-bottom: 24px;
+      box-shadow: 0 8px 24px rgba(25, 118, 210, 0.3);
+      transition: all 0.4s ease;
+    }
+
+    .benefit-card:hover .benefit-icon {
+      transform: rotate(5deg) scale(1.1);
+      box-shadow: 0 12px 36px rgba(25, 118, 210, 0.5);
+    }
+
+    .benefit-card h4 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 14px;
+      color: var(--text);
+    }
+
+    .benefit-card p {
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* ============================================
+       USE CASES
+    ============================================ */
+    .use-cases {
+      padding: 100px 0;
+      background: white;
+    }
+
+    .use-case-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 28px;
+      margin-top: 60px;
+    }
+
+    .use-case {
+      background: var(--card-bg);
+      padding: 32px;
+      border-radius: 20px;
+      border-left: 5px solid var(--primary);
+      transition: all 0.4s ease;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    }
+
+    .use-case:hover {
+      transform: translateX(8px);
+      box-shadow: 0 12px 32px rgba(25, 118, 210, 0.2);
+      background: white;
+    }
+
+    .use-case h4 {
+      font-size: 19px;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: var(--text);
+    }
+
+    .use-case p {
+      color: var(--text-muted);
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    /* ============================================
+       CTA SECTION
+    ============================================ */
+    .cta-section {
+      padding: 100px 0;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      text-align: center;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+      animation: float 8s ease-in-out infinite;
+    }
+
+    .cta-section h3 {
+      font-size: 48px;
+      font-weight: 800;
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-section p {
+      font-size: 22px;
+      margin-bottom: 40px;
+      opacity: 0.95;
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn-white {
+      background: white;
+      color: var(--primary);
+      padding: 20px 48px;
+      border-radius: 16px;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 19px;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      display: inline-block;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn-white:hover {
+      transform: translateY(-6px) scale(1.05);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    }
+
+    /* ============================================
+       FOOTER
+    ============================================ */
+    footer {
+      padding: 80px 0 40px;
+      background: var(--text);
+      color: white;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 60px;
+      margin-bottom: 48px;
+    }
+
+    .footer-brand h4 {
+      font-size: 26px;
+      margin-bottom: 16px;
+    }
+
+    .footer-brand p {
+      color: rgba(255, 255, 255, 0.7);
+      line-height: 1.8;
+    }
+
+    .footer-links h5 {
+      font-size: 17px;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    .footer-links a {
+      display: block;
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      margin-bottom: 12px;
+      transition: all 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: white;
+      transform: translateX(5px);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 32px;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    /* ============================================
+       RESPONSIVE
+    ============================================ */
+    @media (max-width: 768px) {
+      .hero h2 {
+        font-size: 42px;
+      }
+
+      .hero p {
+        font-size: 19px;
+      }
+
+      .section-header h3 {
+        font-size: 36px;
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      nav {
+        display: none;
+      }
+
+      .steps-grid, .products-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .ai-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .ai-assistant-section h2 {
+        font-size: 36px !important;
+      }
+
+      .product-card {
+        padding: 36px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <div class="nav-wrapper">
+        <a href="#" class="brand">
+          <div class="logo-container">
+            <svg width="40" height="40" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M107 112.5C107 109.739 109.239 107.5 112 107.5H170C172.761 107.5 175 109.739 175 112.5V142.5C175 145.261 172.761 147.5 170 147.5H112C109.239 147.5 107 145.261 107 142.5V112.5Z" stroke="#1976D2" stroke-width="15"/>
+              <path d="M330 112.5C330 109.739 332.239 107.5 335 107.5H393C395.761 107.5 398 109.739 398 112.5V142.5C398 145.261 395.761 147.5 393 147.5H335C332.239 147.5 330 145.261 330 142.5V112.5Z" stroke="#1976D2" stroke-width="15"/>
+              <path d="M145 265H355M145 330H355" stroke="#1976D2" stroke-width="15"/>
+              <path d="M180 150V180C180 195 195 210 250 210C305 210 320 195 320 180V150" stroke="#1976D2" stroke-width="15"/>
+              <path d="M145 380H355" stroke="#43A047" stroke-width="10" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="brand-text">
+            <h1>Scan Factura</h1>
+            <p>Digitalización inteligente</p>
+          </div>
+        </a>
+
+        <nav>
+          <a href="#productos">Productos</a>
+          <a href="#asistente">Asistente IA</a>
+          <a href="#beneficios">Beneficios</a>
+          <a href="#contacto" class="btn-primary">Contáctanos</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <h2>Olvídate del papeleo.<br>Digitaliza tus facturas en segundos.</h2>
+      <p>Con Scan Factura, tomas una foto y nuestra inteligencia artificial extrae toda la información automáticamente. Sin escribir, sin errores, sin perder tiempo.</p>
+
+      <div class="cta-group">
+        <a href="mailto:admin@personalshopper.site" class="btn-primary">Solicitar demo gratis</a>
+        <a href="#productos" class="btn-secondary">Ver productos</a>
+      </div>
+
+      <div class="trust-badge">
+        <div class="badge-item">
+          <svg class="badge-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+          </svg>
+          <span>Ahorra hasta 5 horas semanales</span>
+        </div>
+        <div class="badge-item">
+          <svg class="badge-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+          </svg>
+          <span>100% seguro y privado</span>
+        </div>
+        <div class="badge-item">
+          <svg class="badge-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+          </svg>
+          <span>Disponible en Android e iOS</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Section - NUEVA SECCIÓN DESTACADA -->
+  <section id="productos" class="products-section">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <span class="section-tag">🚀 NUESTROS PRODUCTOS</span>
+        <h3>Todo lo que necesitas para automatizar tu contabilidad</h3>
+        <p>Tres herramientas poderosas que transformarán la forma en que manejas tus documentos y finanzas</p>
+      </div>
+
+      <div class="products-grid">
+        <!-- Producto 1: Escaneo y Excel -->
+        <div class="product-card animate-on-scroll">
+          <div class="product-icon">
+            <svg width="100%" height="100%" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M107 112.5H170M330 112.5H393" stroke="white" stroke-width="20" stroke-linecap="round"/>
+              <path d="M145 265H355M145 330H355M145 395H355" stroke="white" stroke-width="18"/>
+              <path d="M180 150V180C180 195 195 210 250 210C305 210 320 195 320 180V150" stroke="white" stroke-width="20"/>
+            </svg>
+          </div>
+          <h4>📸 Escaneo y Exportación a Excel</h4>
+          <p class="product-description">Digitaliza tus facturas en segundos y exporta toda la información a Excel con un solo clic. Perfecta para llevar tu contabilidad organizada.</p>
+
+          <ul class="product-features">
+            <li>Escaneo OCR con precisión del 98%</li>
+            <li>Extracción automática de datos clave</li>
+            <li>Exportación directa a Excel y CSV</li>
+            <li>Reconocimiento de múltiples formatos</li>
+            <li>Procesamiento en la nube ultra-rápido</li>
+            <li>Compatible con facturas colombianas</li>
+          </ul>
+
+          <a href="mailto:admin@personalshopper.site?subject=Interesado en Escaneo y Excel" class="product-cta">Solicitar demo</a>
+        </div>
+
+        <!-- Producto 2: Clasificación con IA -->
+        <div class="product-card animate-on-scroll" style="animation-delay: 0.1s;">
+          <div class="product-icon">
+            <svg width="100%" height="100%" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10c1.105 0 2-.895 2-2V7c0-1.105-.895-2-2-2H7c-1.105 0-2 .895-2 2v10c0 1.105.895 2 2 2zm3-6h4m-4 3h4m-4-6h4" stroke="white" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h4>🤖 Clasificación Inteligente con IA</h4>
+          <p class="product-description">Nuestra IA analiza y clasifica automáticamente tus gastos e ingresos en las cuentas contables correctas. Adiós a la categorización manual.</p>
+
+          <ul class="product-features">
+            <li>Clasificación automática por categorías</li>
+            <li>Aprendizaje de tus patrones de gasto</li>
+            <li>Asignación de cuentas contables PUC</li>
+            <li>Detección de gastos deducibles</li>
+            <li>Análisis de proveedores recurrentes</li>
+            <li>Reportes personalizados por categoría</li>
+          </ul>
+
+          <a href="mailto:admin@personalshopper.site?subject=Interesado en Clasificación IA" class="product-cta">Solicitar demo</a>
+        </div>
+
+        <!-- Producto 3: Asistente Contable RAG -->
+        <div class="product-card animate-on-scroll" style="animation-delay: 0.2s;">
+          <div class="product-icon">
+            <svg width="100%" height="100%" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h4>💬 Asistente Contable y Fiscal RAG</h4>
+          <p class="product-description">Pregúntale lo que sea sobre contabilidad, impuestos y obligaciones legales. Respuestas instantáneas basadas en normativa colombiana actualizada.</p>
+
+          <ul class="product-features">
+            <li>Consultas sobre normativa fiscal DIAN</li>
+            <li>Asesoría en obligaciones tributarias</li>
+            <li>Cálculo de impuestos automático</li>
+            <li>Respuestas con contexto de tus documentos</li>
+            <li>Base de conocimiento actualizada 2024</li>
+            <li>Búsqueda semántica 10-100x más rápida</li>
+          </ul>
+
+          <a href="mailto:admin@personalshopper.site?subject=Interesado en Asistente RAG" class="product-cta">Solicitar demo</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI Assistant Section con más detalle -->
+  <section id="asistente" class="ai-assistant-section">
+    <div class="container">
+      <div class="ai-grid">
+        <!-- Left Content -->
+        <div class="ai-content">
+          <div style="display: inline-block; background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); padding: 8px 16px; border-radius: 24px; margin-bottom: 16px; font-size: 14px; font-weight: 600;">
+            🚀 Tecnología RAG con IA
+          </div>
+
+          <h2 style="font-size: 48px; font-weight: 800; line-height: 1.1; margin-bottom: 24px;">
+            Tu Asistente Contable Personal
+          </h2>
+
+          <p style="font-size: 20px; line-height: 1.6; margin-bottom: 32px; opacity: 0.95;">
+            No más búsquedas eternas en Google. Pregúntale directamente a nuestra IA sobre dudas contables, obligaciones legales y normativas fiscales. Obtén respuestas precisas en segundos.
+          </p>
+
+          <div style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 20px; padding: 24px; margin-bottom: 24px; border: 1px solid rgba(255,255,255,0.2);">
+            <h4 style="font-size: 18px; font-weight: 600; margin-bottom: 16px; display: flex; align-items: center; gap: 8px;">
+              <span style="font-size: 24px;">💬</span> Ejemplos de lo que puedes preguntar:
+            </h4>
+            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px;">
+              <li style="display: flex; align-items: start; gap: 12px;">
+                <span style="color: #43A047; font-size: 20px;">✓</span>
+                <span>"¿Cuándo debo presentar la declaración de IVA?"</span>
+              </li>
+              <li style="display: flex; align-items: start; gap: 12px;">
+                <span style="color: #43A047; font-size: 20px;">✓</span>
+                <span>"¿Qué gastos son deducibles para mi negocio?"</span>
+              </li>
+              <li style="display: flex; align-items: start; gap: 12px;">
+                <span style="color: #43A047; font-size: 20px;">✓</span>
+                <span>"¿Cuánto gasté en papelería este mes?"</span>
+              </li>
+              <li style="display: flex; align-items: start; gap: 12px;">
+                <span style="color: #43A047; font-size: 20px;">✓</span>
+                <span>"¿Cómo registro una factura de exportación?"</span>
+              </li>
+            </ul>
+          </div>
+
+          <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+            <a href="mailto:admin@personalshopper.site" class="btn-white">Probar el asistente</a>
+          </div>
+        </div>
+
+        <!-- Right Stats Card -->
+        <div>
+          <div class="ai-stats-card">
+            <div style="text-align: center; margin-bottom: 32px;">
+              <div style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--primary), var(--secondary)); border-radius: 20px; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; padding: 12px;">
+                <svg width="100%" height="100%" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M107 112.5H170M330 112.5H393" stroke="white" stroke-width="20"/>
+                  <path d="M145 265H355M145 330H355" stroke="white" stroke-width="18"/>
+                  <path d="M180 150V180C180 195 195 210 250 210C305 210 320 195 320 180V150" stroke="white" stroke-width="20"/>
+                  <path d="M145 380H355" stroke="white" stroke-width="12" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <h3 style="font-size: 24px; font-weight: 700; color: var(--text); margin-bottom: 8px;">
+                Tecnología de última generación
+              </h3>
+              <p style="color: var(--text-muted);">Sistema RAG con ChromaDB + Groq/Llama 3.1</p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 24px;">
+              <div style="text-align: center; padding: 20px; background: var(--card-bg); border-radius: 16px;">
+                <div style="font-size: 32px; font-weight: 800; color: var(--primary); margin-bottom: 4px;">10-100x</div>
+                <div style="font-size: 13px; color: var(--text-muted); font-weight: 500;">Más rápido que búsqueda tradicional</div>
+              </div>
+              <div style="text-align: center; padding: 20px; background: var(--card-bg); border-radius: 16px;">
+                <div style="font-size: 32px; font-weight: 800; color: var(--secondary); margin-bottom: 4px;">35%</div>
+                <div style="font-size: 13px; color: var(--text-muted); font-weight: 500;">Incremento en retención de usuarios</div>
+              </div>
+            </div>
+
+            <div style="border-top: 2px solid var(--border); padding-top: 24px;">
+              <h4 style="font-size: 16px; font-weight: 600; color: var(--text); margin-bottom: 16px;">Características incluidas:</h4>
+              <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px;">
+                <li style="display: flex; align-items: center; gap: 12px; color: var(--text-muted);">
+                  <span style="color: var(--secondary); font-size: 18px;">✓</span>
+                  Búsqueda semántica inteligente
+                </li>
+                <li style="display: flex; align-items: center; gap: 12px; color: var(--text-muted);">
+                  <span style="color: var(--secondary); font-size: 18px;">✓</span>
+                  Respuestas con contexto de tus documentos
+                </li>
+                <li style="display: flex; align-items: center; gap: 12px; color: var(--text-muted);">
+                  <span style="color: var(--secondary); font-size: 18px;">✓</span>
+                  Base de conocimiento actualizada
+                </li>
+                <li style="display: flex; align-items: center; gap: 12px; color: var(--text-muted);">
+                  <span style="color: var(--secondary); font-size: 18px;">✓</span>
+                  Notificaciones push inteligentes
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section id="como-funciona" class="how-it-works">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <h3>Tan simple como 1, 2, 3</h3>
+        <p>No necesitas ser experto en tecnología. Así de fácil es digitalizar tus facturas:</p>
+      </div>
+
+      <div class="steps-grid">
+        <div class="step-card animate-on-scroll">
+          <div class="step-number">1</div>
+          <h4>Toma una foto</h4>
+          <p>Abre la app y toma una foto de tu factura con la cámara de tu celular. También puedes subir un PDF o una imagen desde tu galería.</p>
+        </div>
+
+        <div class="step-card animate-on-scroll" style="animation-delay: 0.1s;">
+          <div class="step-number">2</div>
+          <h4>La IA hace su magia</h4>
+          <p>En segundos, nuestra inteligencia artificial lee tu factura y extrae automáticamente todos los datos importantes: proveedor, fecha, monto, productos y más.</p>
+        </div>
+
+        <div class="step-card animate-on-scroll" style="animation-delay: 0.2s;">
+          <div class="step-number">3</div>
+          <h4>Todo organizado</h4>
+          <p>Tus facturas quedan guardadas y organizadas automáticamente. Búscalas en segundos o pregúntale a nuestro asistente virtual lo que necesites saber.</p>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 48px;" class="animate-on-scroll">
+        <a href="mailto:admin@personalshopper.site" class="btn-primary" style="font-size: 18px; padding: 16px 32px;">Probar ahora gratis</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits Section -->
+  <section id="beneficios" class="benefits">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <h3>¿Por qué elegir Scan Factura?</h3>
+        <p>Porque tu tiempo vale oro. Automatiza lo que nadie quiere hacer.</p>
+      </div>
+
+      <div class="benefits-grid">
+        <div class="benefit-card animate-on-scroll">
+          <div class="benefit-icon">
+            <svg width="28" height="28" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M107 112.5H170M330 112.5H393" stroke="white" stroke-width="20"/>
+              <path d="M145 265H355M145 330H355" stroke="white" stroke-width="15"/>
+              <path d="M180 150V180C180 195 195 210 250 210C305 210 320 195 320 180V150" stroke="white" stroke-width="20"/>
+            </svg>
+          </div>
+          <h4>Escaneo automático</h4>
+          <p>Lo que antes te tomaba horas ahora toma segundos. Dedica tu tiempo a lo que realmente importa en tu negocio.</p>
+        </div>
+
+        <div class="benefit-card animate-on-scroll" style="animation-delay: 0.1s;">
+          <div class="benefit-icon">🎯</div>
+          <h4>Elimina errores humanos</h4>
+          <p>Nuestra IA extrae los datos con precisión. Olvídate de números equivocados o información mal ingresada.</p>
+        </div>
+
+        <div class="benefit-card animate-on-scroll" style="animation-delay: 0.2s;">
+          <div class="benefit-icon">🔍</div>
+          <h4>Encuentra cualquier factura al instante</h4>
+          <p>¿Necesitas esa factura de hace 3 meses? Búscala por proveedor, fecha, monto o cualquier palabra. En 2 segundos la tienes.</p>
+        </div>
+
+        <div class="benefit-card animate-on-scroll" style="animation-delay: 0.3s;">
+          <div class="benefit-icon">💬</div>
+          <h4>Pregunta y obtén respuestas</h4>
+          <p>"¿Cuánto gasté en papelería este mes?" Nuestro asistente virtual analiza tus facturas y te responde en lenguaje natural.</p>
+        </div>
+
+        <div class="benefit-card animate-on-scroll" style="animation-delay: 0.4s;">
+          <div class="benefit-icon">📱</div>
+          <h4>Trabaja desde cualquier lugar</h4>
+          <p>Tu celular se convierte en tu oficina. Escanea facturas en el taxi, en la fila del café o desde casa.</p>
+        </div>
+
+        <div class="benefit-card animate-on-scroll" style="animation-delay: 0.5s;">
+          <div class="benefit-icon">🔒</div>
+          <h4>Tus datos están seguros</h4>
+          <p>Usamos encriptación de nivel bancario. Tu información está protegida y respaldada en la nube.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Use Cases Section -->
+  <section id="casos" class="use-cases">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <h3>Perfecto para ti si eres...</h3>
+        <p>Ya sea que tengas un pequeño negocio o trabajes por tu cuenta, Scan Factura te facilita la vida.</p>
+      </div>
+
+      <div class="use-case-list">
+        <div class="use-case animate-on-scroll">
+          <h4>👔 Emprendedor o Freelancer</h4>
+          <p>Mantén tus gastos organizados para tus declaraciones de impuestos sin dolor de cabeza.</p>
+        </div>
+
+        <div class="use-case animate-on-scroll" style="animation-delay: 0.1s;">
+          <h4>🏪 Dueño de negocio</h4>
+          <p>Controla tus proveedores, gastos e inventario sin llenar planillas manualmente.</p>
+        </div>
+
+        <div class="use-case animate-on-scroll" style="animation-delay: 0.2s;">
+          <h4>💼 Contador o asesor</h4>
+          <p>Ofrece a tus clientes una forma moderna de entregar sus documentos ya organizados.</p>
+        </div>
+
+        <div class="use-case animate-on-scroll" style="animation-delay: 0.3s;">
+          <h4>🏢 Administrador de oficina</h4>
+          <p>Elimina el archivo físico y encuentra cualquier documento en segundos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section id="contacto" class="cta-section">
+    <div class="container">
+      <h3>¿Listo para dejar el papeleo atrás?</h3>
+      <p>Únete a cientos de personas que ya están ahorrando tiempo con Scan Factura.</p>
+      <div class="cta-group">
+        <a href="mailto:admin@personalshopper.site" class="btn-white">Solicitar demo gratuita</a>
+      </div>
+      <div style="margin-top: 32px; opacity: 0.95;">
+        <p style="margin-bottom: 8px;">📧 admin@personalshopper.site</p>
+        <p>📱 +57 320 829 4033 — Bogotá, Colombia</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 16px;">
+            <div style="width: 48px; height: 48px; background: linear-gradient(135deg, var(--primary), var(--secondary)); border-radius: 12px; display: flex; align-items: center; justify-content: center; padding: 8px;">
+              <svg width="100%" height="100%" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M107 112.5H170M330 112.5H393" stroke="white" stroke-width="15"/>
+                <path d="M145 265H355M145 330H355" stroke="white" stroke-width="15"/>
+                <path d="M180 150V180C180 195 195 210 250 210C305 210 320 195 320 180V150" stroke="white" stroke-width="15"/>
+                <path d="M145 380H355" stroke="white" stroke-width="10" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h4 style="margin: 0;">Scan Factura</h4>
+          </div>
+          <p>La forma más inteligente de digitalizar y organizar tus facturas. Ahorra tiempo, elimina errores y mantén todo bajo control desde tu celular.</p>
+        </div>
+
+        <div class="footer-links">
+          <h5>Enlaces rápidos</h5>
+          <a href="#productos">Productos</a>
+          <a href="#asistente">Asistente IA</a>
+          <a href="#beneficios">Beneficios</a>
+          <a href="mailto:admin@personalshopper.site">Contacto</a>
+        </div>
+
+        <div class="footer-links">
+          <h5>Contacto</h5>
+          <a href="mailto:admin@personalshopper.site">admin@personalshopper.site</a>
+          <a href="tel:+573208294033">+57 320 829 4033</a>
+          <p style="color: rgba(255,255,255,0.7); margin-top: 12px;">Bogotá, Colombia</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2024 Scan Factura — Digitalización inteligente de facturas</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // Animate on scroll
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.animate-on-scroll').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>
