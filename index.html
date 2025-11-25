@@ -557,6 +557,176 @@
     }
 
     /* ============================================
+       PRICING SECTION - PROMOCIÓN
+    ============================================ */
+    .pricing-section {
+      padding: 100px 0;
+      background: var(--bg);
+      position: relative;
+    }
+
+    .launch-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #F97316, #DC2626);
+      color: white;
+      padding: 10px 24px;
+      border-radius: 50px;
+      font-size: 14px;
+      font-weight: 800;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 20px rgba(249, 115, 22, 0.4);
+      animation: pulse 2s infinite;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 40px;
+      margin-top: 60px;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .pricing-card {
+      background: var(--card-bg);
+      border-radius: 32px;
+      padding: 48px;
+      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
+      border: 2px solid var(--border);
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pricing-card.featured {
+      border-color: var(--primary);
+      transform: scale(1.05);
+      background: linear-gradient(135deg, var(--card-bg) 0%, rgba(59, 130, 246, 0.1) 100%);
+    }
+
+    .pricing-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      transform: scaleX(0);
+      transition: transform 0.5s ease;
+    }
+
+    .pricing-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-12px) scale(1.05);
+      box-shadow: 0 24px 60px rgba(59, 130, 246, 0.5);
+      border-color: var(--primary);
+    }
+
+    .pricing-badge {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      background: linear-gradient(135deg, var(--accent), #DC2626);
+      color: white;
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      box-shadow: 0 4px 12px rgba(249, 115, 22, 0.4);
+    }
+
+    .pricing-header {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .pricing-header h4 {
+      font-size: 28px;
+      font-weight: 800;
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+
+    .pricing-header .price {
+      font-size: 56px;
+      font-weight: 900;
+      color: var(--primary);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .pricing-header .price-period {
+      font-size: 18px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .pricing-features {
+      list-style: none;
+      padding: 0;
+      margin: 32px 0;
+    }
+
+    .pricing-features li {
+      display: flex;
+      align-items: start;
+      gap: 12px;
+      margin-bottom: 16px;
+      font-size: 16px;
+      color: var(--text-muted);
+      transition: all 0.3s ease;
+    }
+
+    .pricing-features li:hover {
+      color: var(--text);
+      transform: translateX(8px);
+    }
+
+    .pricing-features li::before {
+      content: '✓';
+      color: var(--secondary);
+      font-weight: 700;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+
+    .pricing-cta {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      padding: 18px 40px;
+      border-radius: 16px;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 18px;
+      display: block;
+      text-align: center;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 8px 24px rgba(25, 118, 210, 0.35);
+    }
+
+    .pricing-cta:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 40px rgba(25, 118, 210, 0.5);
+    }
+
+    .pricing-note {
+      text-align: center;
+      margin-top: 16px;
+      color: var(--text-muted);
+      font-size: 14px;
+      font-style: italic;
+    }
+
+    /* ============================================
        AI ASSISTANT SECTION
     ============================================ */
     .ai-assistant-section {
@@ -964,6 +1134,7 @@
 
         <nav>
           <a href="#productos">Productos</a>
+          <a href="#precios">Precios</a>
           <a href="#asistente">Asistente IA</a>
           <a href="#beneficios">Beneficios</a>
           <a href="#contacto" class="btn-primary">Contáctanos</a>
@@ -975,12 +1146,15 @@
   <!-- Hero Section -->
   <section class="hero">
     <div class="container">
+      <div style="display: inline-block; background: linear-gradient(135deg, #F97316, #DC2626); color: white; padding: 10px 24px; border-radius: 50px; font-size: 15px; font-weight: 700; margin-bottom: 24px; box-shadow: 0 4px 16px rgba(249, 115, 22, 0.4); animation: pulse 2s infinite;">
+        🎉 PROMOCIÓN LANZAMIENTO: 15 facturas gratis/mes + Plan Pro por solo $15 USD
+      </div>
       <h2>Olvídate del papeleo.<br>Digitaliza tus facturas en segundos.</h2>
       <p>Con ClariFact, tomas una foto y nuestra inteligencia artificial extrae toda la información automáticamente. Sin escribir, sin errores, sin perder tiempo.</p>
 
       <div class="cta-group">
         <a href="mailto:admin@personalshopper.site" class="btn-primary">Solicitar demo gratis</a>
-        <a href="#productos" class="btn-secondary">Ver productos</a>
+        <a href="#precios" class="btn-secondary">Ver planes</a>
       </div>
 
       <div class="trust-badge">
@@ -1075,6 +1249,82 @@
 
           <a href="mailto:admin@personalshopper.site?subject=Interesado en Asistente RAG" class="product-cta">Solicitar demo</a>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section - Promoción de Lanzamiento -->
+  <section id="precios" class="pricing-section">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <span class="launch-badge">🎉 Promoción de Lanzamiento</span>
+        <h3>Comienza Gratis, Crece con Pro</h3>
+        <p>Empieza a digitalizar tus facturas hoy mismo. Sin tarjeta de crédito requerida.</p>
+      </div>
+
+      <div class="pricing-grid">
+        <!-- Plan Gratis -->
+        <div class="pricing-card animate-on-scroll">
+          <div class="pricing-header">
+            <h4>Plan Gratis</h4>
+            <div class="price">$0</div>
+            <div class="price-period">15 facturas / mes</div>
+          </div>
+
+          <ul class="pricing-features">
+            <li>Escaneo OCR de alta precisión</li>
+            <li>Hasta 15 facturas al mes</li>
+            <li>Extracción automática de datos</li>
+            <li>Exportación a Excel y CSV</li>
+            <li>Búsqueda básica de facturas</li>
+            <li>Almacenamiento en la nube</li>
+            <li>Soporte por email</li>
+          </ul>
+
+          <a href="mailto:admin@personalshopper.site?subject=Quiero probar el Plan Gratis" class="pricing-cta">Comenzar Gratis</a>
+          <p class="pricing-note">Sin tarjeta de crédito. Para siempre.</p>
+        </div>
+
+        <!-- Plan Pro - DESTACADO -->
+        <div class="pricing-card featured animate-on-scroll" style="animation-delay: 0.1s;">
+          <div class="pricing-badge">Más Popular</div>
+
+          <div class="pricing-header">
+            <h4>Plan Pro</h4>
+            <div class="price">$15</div>
+            <div class="price-period">USD / mes</div>
+          </div>
+
+          <ul class="pricing-features">
+            <li>Todo lo del Plan Gratis</li>
+            <li><strong>Facturas ilimitadas</strong></li>
+            <li>Clasificación inteligente con IA</li>
+            <li>Asistente contable RAG 24/7</li>
+            <li>Asignación automática de cuentas PUC</li>
+            <li>Detección de gastos deducibles</li>
+            <li>Búsqueda semántica avanzada</li>
+            <li>Reportes personalizados</li>
+            <li>Análisis de proveedores</li>
+            <li>Notificaciones push inteligentes</li>
+            <li>Soporte prioritario</li>
+            <li>Respaldo automático en la nube</li>
+          </ul>
+
+          <a href="mailto:admin@personalshopper.site?subject=Quiero suscribirme al Plan Pro" class="pricing-cta">Comenzar con Pro</a>
+          <p class="pricing-note">Cancela cuando quieras. Sin compromisos.</p>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 60px; padding: 40px; background: var(--card-bg); border-radius: 24px; border: 2px solid var(--primary);" class="animate-on-scroll">
+        <h4 style="font-size: 24px; font-weight: 700; color: var(--text); margin-bottom: 16px;">
+          🎁 ¿Tienes un equipo grande?
+        </h4>
+        <p style="color: var(--text-muted); font-size: 18px; margin-bottom: 24px;">
+          Pregunta por nuestros planes empresariales con descuentos especiales para equipos de 5+ usuarios.
+        </p>
+        <a href="mailto:admin@personalshopper.site?subject=Consulta sobre Plan Empresarial" class="btn-primary" style="font-size: 16px; padding: 14px 32px;">
+          Contactar Ventas
+        </a>
       </div>
     </div>
   </section>
@@ -1325,6 +1575,7 @@
         <div class="footer-links">
           <h5>Enlaces rápidos</h5>
           <a href="#productos">Productos</a>
+          <a href="#precios">Precios</a>
           <a href="#asistente">Asistente IA</a>
           <a href="#beneficios">Beneficios</a>
           <a href="mailto:admin@personalshopper.site">Contacto</a>
