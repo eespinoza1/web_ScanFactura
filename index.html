@@ -3,28 +3,45 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>ClariFact — Digitaliza tus facturas en segundos</title>
-  <meta name="description" content="Olvídate del papeleo. Escanea tus facturas con tu celular y deja que la inteligencia artificial haga el resto." />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 500'><rect fill='%231976D2' width='500' height='500' rx='100'/><path d='M107 112.5C107 109.739 109.239 107.5 112 107.5H170C172.761 107.5 175 109.739 175 112.5V142.5C175 145.261 172.761 147.5 170 147.5H112C109.239 147.5 107 145.261 107 142.5V112.5Z' stroke='white' stroke-width='15' fill='none'/><path d='M330 112.5C330 109.739 332.239 107.5 335 107.5H393C395.761 107.5 398 109.739 398 112.5V142.5C398 145.261 395.761 147.5 393 147.5H335C332.239 347.5 330 145.261 330 142.5V112.5Z' stroke='white' stroke-width='15' fill='none'/><path d='M145 265H145C145 262.239 147.239 260 150 260H355C357.761 260 360 262.239 360 265V265C360 267.761 357.761 270 355 270H150C147.239 270 145 267.761 145 265V265Z' fill='white'/><path d='M145 330H145C145 327.239 147.239 325 150 325H355C357.761 325 360 327.239 360 330V330C360 332.761 357.761 335 355 335H150C147.239 335 145 332.761 145 330V330Z' fill='white'/><path d='M107 265H107C107 259.477 111.477 255 117 255H130C135.523 255 140 259.477 140 265V278C140 283.523 135.523 288 130 288H117C111.477 288 107 283.523 107 278V265V265Z' stroke='white' stroke-width='10' fill='none'/><path d='M180 150L180 147.5C180 147.5 188 143 197.5 143C202.5 143 216 143 220.5 147.5L220.5 184.5C220.5 184.5 220.5 191 225 195.5C229.5 200 237.5 203.5 250 203.5C262.5 203.5 272.5 203.5 280.5 196.5C288.5 189.5 290.5 181 290.5 181V148C290.5 148 299 143 307 143C315 143 325 147.5 325 147.5V147.5' stroke='white' stroke-width='15' fill='none'/><path d='M145 380H355' stroke='white' stroke-width='8' stroke-linecap='round'/></svg>" />
+  <title>ClariFact — Digitaliza, Concilia y Organiza tus finanzas</title>
+  <meta name="description" content="Olvídate del papeleo. Escanea tus facturas y concilia tu banco automáticamente con nuestra IA." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 500'><rect fill='%2358A4E6' width='500' height='500' rx='100'/><path d='M107 112.5C107 109.739 109.239 107.5 112 107.5H170C172.761 107.5 175 109.739 175 112.5V142.5C175 145.261 172.761 147.5 170 147.5H112C109.239 147.5 107 145.261 107 142.5V112.5Z' stroke='white' stroke-width='15' fill='none'/><path d='M330 112.5C330 109.739 332.239 107.5 335 107.5H393C395.761 107.5 398 109.739 398 112.5V142.5C398 145.261 395.761 147.5 393 147.5H335C332.239 347.5 330 145.261 330 142.5V112.5Z' stroke='white' stroke-width='15' fill='none'/><path d='M145 265H145C145 262.239 147.239 260 150 260H355C357.761 260 360 262.239 360 265V265C360 267.761 357.761 270 355 270H150C147.239 270 145 267.761 145 265V265Z' fill='white'/><path d='M145 330H145C145 327.239 147.239 325 150 325H355C357.761 325 360 327.239 360 330V330C360 332.761 357.761 335 355 335H150C147.239 335 145 332.761 145 330V330Z' fill='white'/><path d='M107 265H107C107 259.477 111.477 255 117 255H130C135.523 255 140 259.477 140 265V278C140 283.523 135.523 288 130 288H117C111.477 288 107 283.523 107 278V265V265Z' stroke='white' stroke-width='10' fill='none'/><path d='M180 150L180 147.5C180 147.5 188 143 197.5 143C202.5 143 216 143 220.5 147.5L220.5 184.5C220.5 184.5 220.5 191 225 195.5C229.5 200 237.5 203.5 250 203.5C262.5 203.5 272.5 203.5 280.5 196.5C288.5 189.5 290.5 181 290.5 181V148C290.5 148 299 143 307 143C315 143 325 147.5 325 147.5V147.5' stroke='white' stroke-width='15' fill='none'/><path d='M145 380H355' stroke='white' stroke-width='8' stroke-linecap='round'/></svg>" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <style>
+    /* ============================================
+       PALETA DE COLORES OFICIAL DE LA APP (DARK MODE)
+    ============================================ */
     :root{
-      --primary: #3B82F6;
-      --primary-dark: #2563EB;
-      --secondary: #10B981;
-      --accent: #F97316;
-      --bg: #0F172A;
-      --text: #F1F5F9;
-      --text-muted: #94A3B8;
-      --border: #1E293B;
-      --card-bg: #1E293B;
-      --gradient-start: #0F172A;
-      --gradient-end: #1E293B;
+      /* Colores Principales (AppColors) */
+      --primary: #58A4E6; /* Azul Primario */
+      --secondary: #B39DDB; /* Morado Suave Secundario */
+      --accent: #FFB74D; /* Naranja Melocotón Terciario */
+      
+      /* Colores de Fondo y Superficie (Modo Dark) */
+      --bg: #121212; /* BackgroundDark */
+      --text: #F2F2F7; /* TextPrimaryDark */
+      --text-muted: #8D949B; /* TextSecondaryDark */
+      --border: #334155; /* BorderDark */
+      --card-bg: #1C2632; /* SurfaceDark */
+      --primary-dark: #42A5F5; /* PrimaryDark */
+      
+      /* Degradados */
+      --gradient-start: #121212; /* BackgroundDark */
+      --gradient-end: #1C2632; /* SurfaceDark */
+      
+      /* Colores Semánticos Importantes (Opcional, pero se recomienda) */
+      --success: #4CAF50; /* Éxito */
+      --error: #F44336; /* Error */
+      --warning: #FF9800; /* Advertencia */
+      --info: #2196F3; /* Información */
+      
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
     }
+
+    /* ... Código CSS Básico ... */
 
     * {
       box-sizing: border-box;
@@ -66,36 +83,14 @@
       to { opacity: 1; }
     }
 
-    @keyframes slideInLeft {
+    @keyframes slideDown {
       from {
+        transform: translateY(-100%);
         opacity: 0;
-        transform: translateX(-60px);
       }
       to {
+        transform: translateY(0);
         opacity: 1;
-        transform: translateX(0);
-      }
-    }
-
-    @keyframes slideInRight {
-      from {
-        opacity: 0;
-        transform: translateX(60px);
-      }
-      to {
-        opacity: 1;
-        transform: translateX(0);
-      }
-    }
-
-    @keyframes scaleIn {
-      from {
-        opacity: 0;
-        transform: scale(0.9);
-      }
-      to {
-        opacity: 1;
-        transform: scale(1);
       }
     }
 
@@ -125,7 +120,8 @@
     ============================================ */
     header {
       padding: 24px 0;
-      background: rgba(15, 23, 42, 0.95);
+      /* Usar un color base y el blur */
+      background: rgba(18, 18, 18, 0.95); /* Usando el nuevo --bg: #121212 */
       backdrop-filter: blur(20px);
       position: sticky;
       top: 0;
@@ -133,17 +129,6 @@
       border-bottom: 1px solid var(--border);
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
       animation: slideDown 0.6s ease-out;
-    }
-
-    @keyframes slideDown {
-      from {
-        transform: translateY(-100%);
-        opacity: 0;
-      }
-      to {
-        transform: translateY(0);
-        opacity: 1;
-      }
     }
 
     .nav-wrapper {
@@ -172,19 +157,16 @@
       justify-content: center;
       background: white;
       border-radius: 16px;
-      box-shadow: 0 8px 24px rgba(59, 130, 246, 0.3);
+      /* Ajuste de sombra al nuevo Primary #58A4E6 */
+      box-shadow: 0 8px 24px rgba(88, 164, 230, 0.3);
       transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       overflow: hidden;
     }
 
     .brand:hover .logo-container {
       transform: rotate(5deg) scale(1.1);
-      box-shadow: 0 12px 32px rgba(25, 118, 210, 0.4);
-    }
-
-    .logo-container svg,
-    .logo-container img {
-      transition: transform 0.3s ease;
+      /* Ajuste de sombra al nuevo PrimaryDark #42A5F5 */
+      box-shadow: 0 12px 32px rgba(66, 165, 245, 0.4);
     }
 
     .logo-container img {
@@ -192,9 +174,9 @@
       height: 100%;
       object-fit: contain;
       padding: 8px;
+      transition: transform 0.3s ease;
     }
 
-    .brand:hover .logo-container svg,
     .brand:hover .logo-container img {
       transform: scale(1.1);
     }
@@ -255,7 +237,8 @@
       display: inline-block;
       border: none;
       cursor: pointer;
-      box-shadow: 0 4px 12px rgba(25, 118, 210, 0.3);
+      /* Ajuste de sombra al nuevo Primary #58A4E6 */
+      box-shadow: 0 4px 12px rgba(88, 164, 230, 0.3);
       position: relative;
       overflow: hidden;
     }
@@ -278,7 +261,8 @@
     .btn-primary:hover {
       background: var(--primary-dark);
       transform: translateY(-3px) scale(1.05);
-      box-shadow: 0 12px 28px rgba(25, 118, 210, 0.5);
+      /* Ajuste de sombra al nuevo PrimaryDark #42A5F5 */
+      box-shadow: 0 12px 28px rgba(66, 165, 245, 0.5);
     }
 
     .btn-primary:active {
@@ -303,7 +287,8 @@
       background: var(--primary);
       color: white;
       transform: translateY(-3px);
-      box-shadow: 0 12px 28px rgba(59, 130, 246, 0.4);
+      /* Ajuste de sombra al nuevo Primary #58A4E6 */
+      box-shadow: 0 12px 28px rgba(88, 164, 230, 0.4);
     }
 
     /* ============================================
@@ -320,12 +305,14 @@
       font-weight: 900;
       line-height: 1.1;
       margin-bottom: 24px;
+      /* Uso de los nuevos Primary y Secondary */
       background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
       animation: fadeInUp 0.8s ease-out;
-      text-shadow: 0 4px 20px rgba(25, 118, 210, 0.1);
+      /* Ajuste de sombra al nuevo PrimaryDark #42A5F5 */
+      text-shadow: 0 4px 20px rgba(66, 165, 245, 0.1);
     }
 
     .hero p {
@@ -371,7 +358,8 @@
 
     .badge-item:hover {
       transform: translateY(-4px);
-      box-shadow: 0 8px 24px rgba(59, 130, 246, 0.4);
+      /* Ajuste de sombra al nuevo Primary #58A4E6 */
+      box-shadow: 0 8px 24px rgba(88, 164, 230, 0.4);
       border-color: var(--primary);
     }
 
@@ -382,7 +370,7 @@
     }
 
     /* ============================================
-       PRODUCTS SECTION - NUEVA SECCIÓN DESTACADA
+       PRODUCTS SECTION
     ============================================ */
     .products-section {
       padding: 100px 0;
@@ -414,7 +402,8 @@
       font-size: 14px;
       font-weight: 700;
       margin-bottom: 20px;
-      box-shadow: 0 4px 16px rgba(25, 118, 210, 0.3);
+      /* Ajuste de sombra al nuevo Primary #58A4E6 */
+      box-shadow: 0 4px 16px rgba(88, 164, 230, 0.3);
       animation: pulse 2s infinite;
     }
 
@@ -434,8 +423,9 @@
     }
 
     .products-grid {
+      /* Cambio de 3 a 4 columnas para incluir el nuevo producto */
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
       gap: 40px;
       margin-top: 60px;
     }
@@ -469,7 +459,8 @@
 
     .product-card:hover {
       transform: translateY(-12px) scale(1.02);
-      box-shadow: 0 24px 60px rgba(59, 130, 246, 0.5);
+      /* Ajuste de sombra al nuevo Primary #58A4E6 */
+      box-shadow: 0 24px 60px rgba(88, 164, 230, 0.5);
       border-color: var(--primary);
     }
 
@@ -482,13 +473,15 @@
       align-items: center;
       justify-content: center;
       margin-bottom: 28px;
-      box-shadow: 0 12px 32px rgba(59, 130, 246, 0.3);
+      /* Ajuste de sombra al nuevo Primary #58A4E6 */
+      box-shadow: 0 12px 32px rgba(88, 164, 230, 0.3);
       transition: all 0.4s ease;
     }
 
     .product-card:hover .product-icon {
       transform: rotate(5deg) scale(1.1);
-      box-shadow: 0 16px 48px rgba(25, 118, 210, 0.5);
+      /* Ajuste de sombra al nuevo PrimaryDark #42A5F5 */
+      box-shadow: 0 16px 48px rgba(66, 165, 245, 0.5);
     }
 
     .product-icon svg {
@@ -548,12 +541,14 @@
       font-weight: 700;
       display: inline-block;
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      box-shadow: 0 8px 24px rgba(25, 118, 210, 0.35);
+      /* Ajuste de sombra al nuevo PrimaryDark #42A5F5 */
+      box-shadow: 0 8px 24px rgba(66, 165, 245, 0.35);
     }
 
     .product-cta:hover {
       transform: translateY(-3px);
-      box-shadow: 0 16px 40px rgba(25, 118, 210, 0.5);
+      /* Ajuste de sombra al nuevo PrimaryDark #42A5F5 */
+      box-shadow: 0 16px 40px rgba(66, 165, 245, 0.5);
     }
 
     /* ============================================
@@ -564,17 +559,23 @@
       background: var(--bg);
       position: relative;
     }
-
+    
+    .promo-badge-container {
+      text-align: center; 
+      margin-bottom: 40px;
+    }
+    
     .launch-badge {
       display: inline-block;
-      background: linear-gradient(135deg, #F97316, #DC2626);
+      /* RESTAURACIÓN DEL AVISO ROJO/NARANJA */
+      background: linear-gradient(135deg, var(--accent), #DC2626); 
       color: white;
       padding: 10px 24px;
       border-radius: 50px;
       font-size: 14px;
       font-weight: 800;
-      margin-bottom: 24px;
-      box-shadow: 0 4px 20px rgba(249, 115, 22, 0.4);
+      /* Ajuste de sombra al nuevo Accent #FFB74D */
+      box-shadow: 0 4px 20px rgba(255, 183, 77, 0.4); 
       animation: pulse 2s infinite;
       text-transform: uppercase;
       letter-spacing: 1px;
@@ -582,12 +583,23 @@
 
     .pricing-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      /* Ajustamos a 3 columnas para los nuevos planes */
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 40px;
       margin-top: 60px;
-      max-width: 900px;
+      max-width: 1200px;
       margin-left: auto;
       margin-right: auto;
+    }
+    
+    /* Nueva clase para el plan Business para mantener el layout a 4 columnas */
+    .pricing-grid-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 40px;
+        max-width: 1200px;
+        margin: 60px auto 0;
     }
 
     .pricing-card {
@@ -599,12 +611,16 @@
       transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
       position: relative;
       overflow: hidden;
+      /* Ajuste del ancho de las tarjetas de precio */
+      flex-basis: calc(33.333% - 27px); /* Aproximadamente 3 columnas */
     }
 
+    /* Estilos para las tarjetas destacadas */
     .pricing-card.featured {
       border-color: var(--primary);
       transform: scale(1.05);
-      background: linear-gradient(135deg, var(--card-bg) 0%, rgba(59, 130, 246, 0.1) 100%);
+      /* Ajuste del color rgba al nuevo Primary #58A4E6 */
+      background: linear-gradient(135deg, var(--card-bg) 0%, rgba(88, 164, 230, 0.1) 100%);
     }
 
     .pricing-card::before {
@@ -625,15 +641,31 @@
 
     .pricing-card:hover {
       transform: translateY(-12px) scale(1.05);
-      box-shadow: 0 24px 60px rgba(59, 130, 246, 0.5);
+      /* Ajuste de sombra al nuevo Primary #58A4E6 */
+      box-shadow: 0 24px 60px rgba(88, 164, 230, 0.5);
       border-color: var(--primary);
     }
+    
+    /* Nuevo estilo para que el Plan Gratis no se vea afectado por el flex de 3 columnas si solo hay 3 planes */
+    @media (min-width: 1000px) {
+        .pricing-card:nth-child(2) {
+            transform: scale(1.05); /* Aplica el escalado al plan central */
+        }
+        .pricing-card:hover {
+            transform: translateY(-12px) scale(1.05);
+        }
+        .pricing-card:nth-child(2):hover {
+            transform: translateY(-12px) scale(1.1); /* Destaca más el central al hacer hover */
+        }
+    }
+
 
     .pricing-badge {
       position: absolute;
       top: 24px;
       right: 24px;
-      background: linear-gradient(135deg, var(--accent), #DC2626);
+      /* Uso del nuevo Accent #FFB74D */
+      background: linear-gradient(135deg, var(--accent), #DC2626); 
       color: white;
       padding: 6px 16px;
       border-radius: 20px;
@@ -641,7 +673,8 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.5px;
-      box-shadow: 0 4px 12px rgba(249, 115, 22, 0.4);
+      /* Ajuste de sombra al nuevo Accent #FFB74D */
+      box-shadow: 0 4px 12px rgba(255, 183, 77, 0.4);
     }
 
     .pricing-header {
@@ -710,12 +743,14 @@
       display: block;
       text-align: center;
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      box-shadow: 0 8px 24px rgba(25, 118, 210, 0.35);
+      /* Ajuste de sombra al nuevo PrimaryDark #42A5F5 */
+      box-shadow: 0 8px 24px rgba(66, 165, 245, 0.35);
     }
 
     .pricing-cta:hover {
       transform: translateY(-3px);
-      box-shadow: 0 16px 40px rgba(25, 118, 210, 0.5);
+      /* Ajuste de sombra al nuevo PrimaryDark #42A5F5 */
+      box-shadow: 0 16px 40px rgba(66, 165, 245, 0.5);
     }
 
     .pricing-note {
@@ -731,7 +766,8 @@
     ============================================ */
     .ai-assistant-section {
       padding: 100px 0;
-      background: linear-gradient(135deg, var(--primary) 0%, #1565C0 100%);
+      /* Uso del nuevo Primary y un tono más oscuro del mismo */
+      background: linear-gradient(135deg, var(--primary) 0%, #1565C0 100%); 
       position: relative;
       overflow: hidden;
     }
@@ -775,6 +811,13 @@
       box-shadow: 0 40px 100px rgba(0,0,0,0.4);
     }
 
+    /* Ajuste de sombra en AI Stats Card */
+    .ai-stats-card .logo-container-shadow {
+        /* Ajuste de sombra al nuevo Primary #58A4E6 */
+        box-shadow: 0 8px 24px rgba(88, 164, 230, 0.3);
+    }
+
+
     /* ============================================
        HOW IT WORKS
     ============================================ */
@@ -802,7 +845,8 @@
 
     .step-card:hover {
       transform: translateY(-16px) scale(1.03);
-      box-shadow: 0 24px 60px rgba(59, 130, 246, 0.4);
+      /* Ajuste de sombra al nuevo Primary #58A4E6 */
+      box-shadow: 0 24px 60px rgba(88, 164, 230, 0.4);
       border-color: var(--primary);
       background: var(--card-bg);
     }
@@ -819,13 +863,15 @@
       font-size: 32px;
       font-weight: 800;
       margin: 0 auto 28px;
-      box-shadow: 0 12px 32px rgba(25, 118, 210, 0.35);
+      /* Ajuste de sombra al nuevo PrimaryDark #42A5F5 */
+      box-shadow: 0 12px 32px rgba(66, 165, 245, 0.35);
       transition: all 0.4s ease;
     }
 
     .step-card:hover .step-number {
       transform: rotate(360deg) scale(1.15);
-      box-shadow: 0 16px 48px rgba(25, 118, 210, 0.5);
+      /* Ajuste de sombra al nuevo PrimaryDark #42A5F5 */
+      box-shadow: 0 16px 48px rgba(66, 165, 245, 0.5);
     }
 
     .step-card h4 {
@@ -866,7 +912,8 @@
     }
 
     .benefit-card:hover {
-      box-shadow: 0 24px 60px rgba(59, 130, 246, 0.4);
+      /* Ajuste de sombra al nuevo Primary #58A4E6 */
+      box-shadow: 0 24px 60px rgba(88, 164, 230, 0.4);
       transform: translateY(-12px);
       border-color: var(--primary);
     }
@@ -882,13 +929,15 @@
       color: white;
       font-size: 28px;
       margin-bottom: 24px;
-      box-shadow: 0 8px 24px rgba(59, 130, 246, 0.3);
+      /* Ajuste de sombra al nuevo Primary #58A4E6 */
+      box-shadow: 0 8px 24px rgba(88, 164, 230, 0.3);
       transition: all 0.4s ease;
     }
 
     .benefit-card:hover .benefit-icon {
       transform: rotate(5deg) scale(1.1);
-      box-shadow: 0 12px 36px rgba(25, 118, 210, 0.5);
+      /* Ajuste de sombra al nuevo PrimaryDark #42A5F5 */
+      box-shadow: 0 12px 36px rgba(66, 165, 245, 0.5);
     }
 
     .benefit-card h4 {
@@ -929,7 +978,8 @@
 
     .use-case:hover {
       transform: translateX(8px);
-      box-shadow: 0 12px 32px rgba(59, 130, 246, 0.4);
+      /* Ajuste de sombra al nuevo Primary #58A4E6 */
+      box-shadow: 0 12px 32px rgba(88, 164, 230, 0.4);
       background: var(--card-bg);
       border-color: var(--primary);
     }
@@ -1004,7 +1054,8 @@
 
     .btn-white:hover {
       transform: translateY(-6px) scale(1.05);
-      box-shadow: 0 20px 50px rgba(59, 130, 246, 0.5);
+      /* Ajuste de sombra al nuevo Primary #58A4E6 */
+      box-shadow: 0 20px 50px rgba(88, 164, 230, 0.5);
       background: white;
       color: var(--primary);
     }
@@ -1014,7 +1065,8 @@
     ============================================ */
     footer {
       padding: 80px 0 40px;
-      background: #0A0F1E;
+      /* Usar un tono aún más oscuro que el fondo para el footer */
+      background: #0B0B0B; 
       color: white;
       border-top: 1px solid var(--border);
     }
@@ -1034,6 +1086,11 @@
     .footer-brand p {
       color: rgba(255, 255, 255, 0.7);
       line-height: 1.8;
+    }
+
+    .footer-brand .logo-container-shadow {
+        /* Ajuste de sombra al nuevo Primary #58A4E6 */
+        box-shadow: 0 4px 16px rgba(88, 164, 230, 0.3);
     }
 
     .footer-links h5 {
@@ -1087,8 +1144,12 @@
         display: none;
       }
 
-      .steps-grid, .products-grid {
+      .products-grid {
         grid-template-columns: 1fr;
+      }
+      
+      .steps-grid {
+          grid-template-columns: 1fr;
       }
 
       .ai-grid {
@@ -1108,23 +1169,12 @@
 </head>
 <body>
 
-  <!-- Header -->
   <header>
     <div class="container">
       <div class="nav-wrapper">
         <a href="#" class="brand">
           <div class="logo-container">
-            <!-- Opción 1: Usar imagen desde URL -->
             <img src="./logosinfondo.png" alt="ClariFact Logo">
-
-            <!-- Opción 2: Si prefieres mantener el SVG, descomenta la siguiente línea y comenta la anterior -->
-            <!-- <svg width="40" height="40" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M107 112.5C107 109.739 109.239 107.5 112 107.5H170C172.761 107.5 175 109.739 175 112.5V142.5C175 145.261 172.761 147.5 170 147.5H112C109.239 147.5 107 145.261 107 142.5V112.5Z" stroke="#3B82F6" stroke-width="15"/>
-              <path d="M330 112.5C330 109.739 332.239 107.5 335 107.5H393C395.761 107.5 398 109.739 398 112.5V142.5C398 145.261 395.761 147.5 393 147.5H335C332.239 147.5 330 145.261 330 142.5V112.5Z" stroke="#3B82F6" stroke-width="15"/>
-              <path d="M145 265H355M145 330H355" stroke="#3B82F6" stroke-width="15"/>
-              <path d="M180 150V180C180 195 195 210 250 210C305 210 320 195 320 180V150" stroke="#3B82F6" stroke-width="15"/>
-              <path d="M145 380H355" stroke="#10B981" stroke-width="10" stroke-linecap="round"/>
-            </svg> -->
           </div>
           <div class="brand-text">
             <h1>ClariFact</h1>
@@ -1134,6 +1184,7 @@
 
         <nav>
           <a href="#productos">Productos</a>
+          <a href="#conciliacion">Conciliación</a>
           <a href="#precios">Precios</a>
           <a href="#asistente">Asistente IA</a>
           <a href="#beneficios">Beneficios</a>
@@ -1143,14 +1194,13 @@
     </div>
   </header>
 
-  <!-- Hero Section -->
   <section class="hero">
     <div class="container">
-      <div style="display: inline-block; background: linear-gradient(135deg, #F97316, #DC2626); color: white; padding: 10px 24px; border-radius: 50px; font-size: 15px; font-weight: 700; margin-bottom: 24px; box-shadow: 0 4px 16px rgba(249, 115, 22, 0.4); animation: pulse 2s infinite;">
-        🎉 PROMOCIÓN LANZAMIENTO: 15 facturas gratis/mes + Plan Pro por solo $15 USD
+      <h2>Olvídate del papeleo.<br>Digitaliza y Concilia en segundos.</h2>
+         <div class="promo-badge-container animate-on-scroll">
+        <span class="launch-badge">🎉 PROMOCIÓN LANZAMIENTO: ¡Plan Pro Plus Destacado por $19,99!</span>
       </div>
-      <h2>Olvídate del papeleo.<br>Digitaliza tus facturas en segundos.</h2>
-      <p>Con ClariFact, tomas una foto y nuestra inteligencia artificial extrae toda la información automáticamente. Sin escribir, sin errores, sin perder tiempo.</p>
+      <p>Con ClariFact, tomas una foto, subes tu estado de cuenta y nuestra inteligencia artificial hace la conciliación bancaria automáticamente, sin errores.</p>
 
       <div class="cta-group">
         <a href="mailto:administracion@clarifact.site" class="btn-primary">Solicitar demo gratis</a>
@@ -1180,23 +1230,22 @@
     </div>
   </section>
 
-  <!-- Products Section - NUEVA SECCIÓN DESTACADA -->
   <section id="productos" class="products-section">
     <div class="container">
       <div class="section-header animate-on-scroll">
         <span class="section-tag">🚀 NUESTROS PRODUCTOS</span>
         <h3>Todo lo que necesitas para automatizar tu contabilidad</h3>
-        <p>Tres herramientas poderosas que transformarán la forma en que manejas tus documentos y finanzas</p>
+        <p>Cuatro herramientas poderosas que transformarán la forma en que manejas tus documentos y finanzas</p>
       </div>
 
       <div class="products-grid">
-        <!-- Producto 1: Escaneo y Excel -->
+        
         <div class="product-card animate-on-scroll">
           <div class="product-icon">
-            <img src="./logosinfondo.png" alt="ClariFact Logo" style="width: 100%; height: 100%; object-fit: contain;">
+            <img src="./logosinfondo.png" alt="Icono Escaneo" style="width: 100%; height: 100%; object-fit: contain;">
           </div>
-          <h4>📸 Escaneo y Exportación a Excel</h4>
-          <p class="product-description">Digitaliza tus facturas en segundos y exporta toda la información a Excel con un solo clic. Perfecta para llevar tu contabilidad organizada.</p>
+          <h4>📸 Escaneo y Exportación</h4>
+          <p class="product-description">Digitaliza tus facturas en segundos y exporta toda la información a Excel con un solo clic. Perfecto para llevar tu contabilidad organizada.</p>
 
           <ul class="product-features">
             <li>Escaneo OCR con precisión del 98%</li>
@@ -1204,24 +1253,43 @@
             <li>Exportación directa a Excel y CSV</li>
             <li>Reconocimiento de múltiples formatos</li>
             <li>Procesamiento en la nube ultra-rápido</li>
-            <li>Compatible con facturas colombianas</li>
+            <li>Compatible con facturas **venezolanas**</li>
           </ul>
 
-          <a href="mailto:administracion@clarifact.site?subject=Interesado en Escaneo y Excel" class="product-cta">Solicitar demo</a>
+          <a href="mailto:administracion@clarifact.site?subject=Interesado en Escaneo y Exportación" class="product-cta">Solicitar demo</a>
+        </div>
+        
+        <div class="product-card animate-on-scroll" id="conciliacion" style="animation-delay: 0.1s;">
+          <div class="product-icon">
+             <img src="./logosinfondo.png" alt="Icono Conciliación" style="width: 100%; height: 100%; object-fit: contain;">
+          </div>
+          <h4>💵 Conciliación Bancaria Automática</h4>
+          <p class="product-description">Sube tu estado de cuenta y deja que la IA concilie cada movimiento con tus facturas digitales automáticamente. ¡Cero errores!</p>
+          
+          <ul class="product-features">
+            <li>Subida de estados de cuenta (PDF/Excel)</li>
+            <li>Conciliación automática con documentos</li>
+            <li>Identificación de transacciones no conciliadas</li>
+            <li>Reportes de diferencias en segundos</li>
+            <li>Ahorro de hasta 8 horas por período</li>
+            <li>Seguimiento histórico de conciliaciones</li>
+          </ul>
+
+          <a href="mailto:administracion@clarifact.site?subject=Interesado en Conciliación Bancaria" class="product-cta">Solicitar demo</a>
         </div>
 
-        <!-- Producto 2: Clasificación con IA -->
-        <div class="product-card animate-on-scroll" style="animation-delay: 0.1s;">
+
+        <div class="product-card animate-on-scroll" style="animation-delay: 0.2s;">
           <div class="product-icon">
-            <img src="./logosinfondo.png" alt="ClariFact Logo" style="width: 100%; height: 100%; object-fit: contain;">
+            <img src="./logosinfondo.png" alt="Icono Clasificación" style="width: 100%; height: 100%; object-fit: contain;">
           </div>
-          <h4>🤖 Clasificación Inteligente con IA</h4>
+          <h4>🤖 Clasificación Inteligente</h4>
           <p class="product-description">Nuestra IA analiza y clasifica automáticamente tus gastos e ingresos en las cuentas contables correctas. Adiós a la categorización manual.</p>
 
           <ul class="product-features">
             <li>Clasificación automática por categorías</li>
             <li>Aprendizaje de tus patrones de gasto</li>
-            <li>Asignación de cuentas contables PUC</li>
+            <li>Asignación de cuentas contables **(Plan Contable Venezolano)**</li>
             <li>Detección de gastos deducibles</li>
             <li>Análisis de proveedores recurrentes</li>
             <li>Reportes personalizados por categoría</li>
@@ -1230,16 +1298,15 @@
           <a href="mailto:administracion@clarifact.site?subject=Interesado en Clasificación IA" class="product-cta">Solicitar demo</a>
         </div>
 
-        <!-- Producto 3: Asistente Contable RAG -->
-        <div class="product-card animate-on-scroll" style="animation-delay: 0.2s;">
+        <div class="product-card animate-on-scroll" style="animation-delay: 0.3s;">
           <div class="product-icon">
-            <img src="./logosinfondo.png" alt="ClariFact Logo" style="width: 100%; height: 100%; object-fit: contain;">
+            <img src="./logosinfondo.png" alt="Icono Asistente" style="width: 100%; height: 100%; object-fit: contain;">
           </div>
           <h4>💬 Asistente Contable y Fiscal RAG</h4>
-          <p class="product-description">Pregúntale lo que sea sobre contabilidad, impuestos y obligaciones legales. Respuestas instantáneas basadas en normativa colombiana actualizada.</p>
+          <p class="product-description">Pregúntale lo que sea sobre contabilidad, impuestos y obligaciones legales. Respuestas instantáneas basadas en **normativa venezolana** actualizada.</p>
 
           <ul class="product-features">
-            <li>Consultas sobre normativa fiscal DIAN</li>
+            <li>Consultas sobre normativa fiscal **SENIAT**</li>
             <li>Asesoría en obligaciones tributarias</li>
             <li>Cálculo de impuestos automático</li>
             <li>Respuestas con contexto de tus documentos</li>
@@ -1249,35 +1316,37 @@
 
           <a href="mailto:administracion@clarifact.site?subject=Interesado en Asistente RAG" class="product-cta">Solicitar demo</a>
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- Pricing Section - Promoción de Lanzamiento -->
   <section id="precios" class="pricing-section">
     <div class="container">
+        
+   
+        
       <div class="section-header animate-on-scroll">
-        <span class="launch-badge">🎉 Promoción de Lanzamiento</span>
-        <h3>Comienza Gratis, Crece con Pro</h3>
-        <p>Empieza a digitalizar tus facturas hoy mismo. Sin tarjeta de crédito requerida.</p>
+        <h3>Comienza Gratis, Crece con ClariFact</h3>
+        <p>Elige el plan que mejor se adapte a tu volumen de digitalización y necesidades empresariales.</p>
       </div>
 
-      <div class="pricing-grid">
-        <!-- Plan Gratis -->
+      <div class="pricing-grid-container">
+        
         <div class="pricing-card animate-on-scroll">
           <div class="pricing-header">
             <h4>Plan Gratis</h4>
             <div class="price">$0</div>
-            <div class="price-period">15 facturas / mes</div>
+            <div class="price-period">**5 facturas / mes**</div>
           </div>
 
           <ul class="pricing-features">
             <li>Escaneo OCR de alta precisión</li>
-            <li>Hasta 15 facturas al mes</li>
+            <li>Hasta **5 facturas** al mes</li>
             <li>Extracción automática de datos</li>
             <li>Exportación a Excel y CSV</li>
             <li>Búsqueda básica de facturas</li>
-            <li>Almacenamiento en la nube</li>
+            <li>Almacenamiento en la nube (limitado)</li>
             <li>Soporte por email</li>
           </ul>
 
@@ -1285,27 +1354,25 @@
           <p class="pricing-note">Sin tarjeta de crédito. Para siempre.</p>
         </div>
 
-        <!-- Plan Pro - DESTACADO -->
         <div class="pricing-card featured animate-on-scroll" style="animation-delay: 0.1s;">
-          <div class="pricing-badge">Más Popular</div>
-
+          <div class="pricing-badge">Sugerido</div>
           <div class="pricing-header">
             <h4>Plan Pro</h4>
-            <div class="price">$15</div>
+            <div class="price">$19.99</div>
             <div class="price-period">USD / mes</div>
           </div>
 
           <ul class="pricing-features">
             <li>Todo lo del Plan Gratis</li>
-            <li><strong>Facturas ilimitadas</strong></li>
+            <li>Hasta **50 facturas** al mes</li>
+            <li>Conciliación Bancaria Automática</li>
             <li>Clasificación inteligente con IA</li>
             <li>Asistente contable RAG 24/7</li>
-            <li>Asignación automática de cuentas PUC</li>
+            <li>Asignación de cuentas **(Plan Contable Venezolano)**</li>
             <li>Detección de gastos deducibles</li>
             <li>Búsqueda semántica avanzada</li>
             <li>Reportes personalizados</li>
             <li>Análisis de proveedores</li>
-            <li>Notificaciones push inteligentes</li>
             <li>Soporte prioritario</li>
             <li>Respaldo automático en la nube</li>
           </ul>
@@ -1313,27 +1380,59 @@
           <a href="mailto:administracion@clarifact.site?subject=Quiero suscribirme al Plan Pro" class="pricing-cta">Comenzar con Pro</a>
           <p class="pricing-note">Cancela cuando quieras. Sin compromisos.</p>
         </div>
-      </div>
+        
+        <div class="pricing-card featured animate-on-scroll" style="animation-delay: 0.2s; border-color: var(--secondary);">
+          <div class="pricing-badge" style="background: linear-gradient(135deg, var(--secondary), #8e44ad);">Pro Plus</div>
+          <div class="pricing-header">
+            <h4>Plan Pro Plus</h4>
+            <div class="price">$49</div>
+            <div class="price-period">USD / mes</div>
+          </div>
 
-      <div style="text-align: center; margin-top: 60px; padding: 40px; background: var(--card-bg); border-radius: 24px; border: 2px solid var(--primary);" class="animate-on-scroll">
-        <h4 style="font-size: 24px; font-weight: 700; color: var(--text); margin-bottom: 16px;">
-          🎁 ¿Tienes un equipo grande?
-        </h4>
-        <p style="color: var(--text-muted); font-size: 18px; margin-bottom: 24px;">
-          Pregunta por nuestros planes empresariales con descuentos especiales para equipos de 5+ usuarios.
-        </p>
-        <a href="mailto:administracion@clarifact.site?subject=Consulta sobre Plan Empresarial" class="btn-primary" style="font-size: 16px; padding: 14px 32px;">
-          Contactar Ventas
-        </a>
+          <ul class="pricing-features">
+            <li>Todo lo del Plan Pro</li>
+            <li>Hasta **300 facturas** al mes</li>
+            <li>**Multi-usuario** (3 usuarios)</li>
+            <li>Reportes Ejecutivos Avanzados</li>
+            <li>Integración con API (Nivel Básico)</li>
+            <li>Dashboard de Flujo de Caja</li>
+            <li>Asistencia de Conciliación Avanzada</li>
+            <li>Soporte VIP dedicado</li>
+          </ul>
+
+          <a href="mailto:administracion@clarifact.site?subject=Quiero suscribirme al Plan Pro Plus" class="pricing-cta" style="background: linear-gradient(135deg, var(--secondary), #8e44ad); box-shadow: 0 8px 24px rgba(179, 157, 219, 0.45);">Comenzar con Pro Plus</a>
+          <p class="pricing-note">El plan más popular para PYMES.</p>
+        </div>
+        
+        <div class="pricing-card animate-on-scroll" style="animation-delay: 0.3s; flex-basis: 100%;">
+          <div class="pricing-badge" style="background: linear-gradient(135deg, #009688, #00BCD4);">Business (Enterprise)</div>
+          <div class="pricing-header">
+            <h4>Plan Business</h4>
+            <div class="price">$99</div>
+            <div class="price-period">USD / mes</div>
+          </div>
+
+          <ul class="pricing-features">
+            <li>Todo lo del Plan Pro Plus</li>
+            <li>**Facturas Ilimitadas**</li>
+            <li>**Multi-usuario Ilimitado**</li>
+            <li>Integración con ERP/Contable Personalizado</li>
+            <li>Consultoría e Implementación Dedicada</li>
+            <li>API Completa y Webhooks</li>
+            <li>Acuerdos de Nivel de Servicio (SLA)</li>
+            <li>Auditoría Fiscal Avanzada</li>
+          </ul>
+
+          <a href="mailto:administracion@clarifact.site?subject=Consulta sobre Plan Business" class="pricing-cta" style="background: linear-gradient(135deg, #009688, #00BCD4); box-shadow: 0 8px 24px rgba(0, 150, 136, 0.35);">Contactar para Business</a>
+          <p class="pricing-note">Solución completa para empresas grandes y corporaciones.</p>
+        </div>
+        
       </div>
-    </div>
+      </div>
   </section>
-
-  <!-- AI Assistant Section con más detalle -->
   <section id="asistente" class="ai-assistant-section">
     <div class="container">
       <div class="ai-grid">
-        <!-- Left Content -->
         <div class="ai-content">
           <div style="display: inline-block; background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); padding: 8px 16px; border-radius: 24px; margin-bottom: 16px; font-size: 14px; font-weight: 600;">
             🚀 Tecnología RAG con IA
@@ -1353,19 +1452,19 @@
             </h4>
             <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px;">
               <li style="display: flex; align-items: start; gap: 12px;">
-                <span style="color: #43A047; font-size: 20px;">✓</span>
-                <span>"¿Cuándo debo presentar la declaración de IVA?"</span>
+                <span style="color: var(--success); font-size: 20px;">✓</span>
+                <span>"¿Cuándo debo presentar la declaración de IVA ante el **SENIAT**?"</span>
               </li>
               <li style="display: flex; align-items: start; gap: 12px;">
-                <span style="color: #43A047; font-size: 20px;">✓</span>
-                <span>"¿Qué gastos son deducibles para mi negocio?"</span>
+                <span style="color: var(--success); font-size: 20px;">✓</span>
+                <span>"¿Qué gastos son deducibles para mi negocio según la **normativa venezolana**?"</span>
               </li>
               <li style="display: flex; align-items: start; gap: 12px;">
-                <span style="color: #43A047; font-size: 20px;">✓</span>
+                <span style="color: var(--success); font-size: 20px;">✓</span>
                 <span>"¿Cuánto gasté en papelería este mes?"</span>
               </li>
               <li style="display: flex; align-items: start; gap: 12px;">
-                <span style="color: #43A047; font-size: 20px;">✓</span>
+                <span style="color: var(--success); font-size: 20px;">✓</span>
                 <span>"¿Cómo registro una factura de exportación?"</span>
               </li>
             </ul>
@@ -1376,11 +1475,10 @@
           </div>
         </div>
 
-        <!-- Right Stats Card -->
         <div>
           <div class="ai-stats-card">
             <div style="text-align: center; margin-bottom: 32px;">
-              <div style="width: 80px; height: 80px; background: white; border-radius: 20px; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; padding: 12px; box-shadow: 0 8px 24px rgba(59, 130, 246, 0.3);">
+              <div class="logo-container-shadow" style="width: 80px; height: 80px; background: white; border-radius: 20px; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; padding: 12px;">
                 <img src="./logosinfondo.png" alt="ClariFact Logo" style="width: 100%; height: 100%; object-fit: contain;">
               </div>
               <h3 style="font-size: 24px; font-weight: 700; color: var(--text); margin-bottom: 8px;">
@@ -1427,31 +1525,30 @@
     </div>
   </section>
 
-  <!-- How It Works Section -->
   <section id="como-funciona" class="how-it-works">
     <div class="container">
       <div class="section-header animate-on-scroll">
-        <h3>Tan simple como 1, 2, 3</h3>
-        <p>No necesitas ser experto en tecnología. Así de fácil es digitalizar tus facturas:</p>
+        <h3>De Factura a Conciliación en 3 Pasos</h3>
+        <p>No necesitas ser experto en tecnología. Así de fácil es digitalizar tus facturas y conciliar tu banco:</p>
       </div>
 
       <div class="steps-grid">
         <div class="step-card animate-on-scroll">
           <div class="step-number">1</div>
-          <h4>Toma una foto</h4>
-          <p>Abre la app y toma una foto de tu factura con la cámara de tu celular. También puedes subir un PDF o una imagen desde tu galería.</p>
+          <h4>Digitaliza tus documentos</h4>
+          <p>Toma una foto de tu factura o sube un PDF. La IA extrae toda la información importante automáticamente.</p>
         </div>
 
         <div class="step-card animate-on-scroll" style="animation-delay: 0.1s;">
           <div class="step-number">2</div>
-          <h4>La IA hace su magia</h4>
-          <p>En segundos, nuestra inteligencia artificial lee tu factura y extrae automáticamente todos los datos importantes: proveedor, fecha, monto, productos y más.</p>
+          <h4>Sube tu estado de cuenta</h4>
+          <p>Carga el estado de cuenta bancario para el periodo deseado. La plataforma lo procesa y prepara los movimientos.</p>
         </div>
 
         <div class="step-card animate-on-scroll" style="animation-delay: 0.2s;">
           <div class="step-number">3</div>
-          <h4>Todo organizado</h4>
-          <p>Tus facturas quedan guardadas y organizadas automáticamente. Búscalas en segundos o pregúntale a nuestro asistente virtual lo que necesites saber.</p>
+          <h4>Conciliación automática</h4>
+          <p>La app compara los movimientos bancarios con tus facturas digitalizadas y realiza la conciliación automáticamente. ¡Reporte listo en minutos!</p>
         </div>
       </div>
 
@@ -1461,7 +1558,6 @@
     </div>
   </section>
 
-  <!-- Benefits Section -->
   <section id="beneficios" class="benefits">
     <div class="container">
       <div class="section-header animate-on-scroll">
@@ -1472,7 +1568,7 @@
       <div class="benefits-grid">
         <div class="benefit-card animate-on-scroll">
           <div class="benefit-icon">
-            <img src="./logosinfondo.png" alt="ClariFact Logo" style="width: 100%; height: 100%; object-fit: contain;">
+            <img src="./logosinfondo.png" alt="Icono Escaneo" style="width: 100%; height: 100%; object-fit: contain;">
           </div>
           <h4>Escaneo automático</h4>
           <p>Lo que antes te tomaba horas ahora toma segundos. Dedica tu tiempo a lo que realmente importa en tu negocio.</p>
@@ -1497,9 +1593,9 @@
         </div>
 
         <div class="benefit-card animate-on-scroll" style="animation-delay: 0.4s;">
-          <div class="benefit-icon">📱</div>
-          <h4>Trabaja desde cualquier lugar</h4>
-          <p>Tu celular se convierte en tu oficina. Escanea facturas en el taxi, en la fila del café o desde casa.</p>
+          <div class="benefit-icon">🏦</div>
+          <h4>Conciliación Bancaria Automática</h4>
+          <p>La IA coteja tus movimientos de cuenta con tus facturas. Ahorra días de trabajo manual y asegura la exactitud contable.</p>
         </div>
 
         <div class="benefit-card animate-on-scroll" style="animation-delay: 0.5s;">
@@ -1511,7 +1607,6 @@
     </div>
   </section>
 
-  <!-- Use Cases Section -->
   <section id="casos" class="use-cases">
     <div class="container">
       <div class="section-header animate-on-scroll">
@@ -1522,7 +1617,7 @@
       <div class="use-case-list">
         <div class="use-case animate-on-scroll">
           <h4>👔 Emprendedor o Freelancer</h4>
-          <p>Mantén tus gastos organizados para tus declaraciones de impuestos sin dolor de cabeza.</p>
+          <p>Mantén tus gastos organizados y concilia tu cuenta de negocios sin dolor de cabeza.</p>
         </div>
 
         <div class="use-case animate-on-scroll" style="animation-delay: 0.1s;">
@@ -1532,18 +1627,17 @@
 
         <div class="use-case animate-on-scroll" style="animation-delay: 0.2s;">
           <h4>💼 Contador o asesor</h4>
-          <p>Ofrece a tus clientes una forma moderna de entregar sus documentos ya organizados.</p>
+          <p>Ofrece a tus clientes una forma moderna de entregar sus documentos ya organizados y conciliados.</p>
         </div>
 
         <div class="use-case animate-on-scroll" style="animation-delay: 0.3s;">
           <h4>🏢 Administrador de oficina</h4>
-          <p>Elimina el archivo físico y encuentra cualquier documento en segundos.</p>
+          <p>Elimina el archivo físico, concilia las cuentas de la empresa y encuentra cualquier documento en segundos.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA Section -->
   <section id="contacto" class="cta-section">
     <div class="container">
       <h3>¿Listo para dejar el papeleo atrás?</h3>
@@ -1553,28 +1647,28 @@
       </div>
       <div style="margin-top: 32px; opacity: 0.95;">
         <p style="margin-bottom: 8px;">📧 administracion@clarifact.site</p>
-        <p>📱 +57 320 829 4033 — Bogotá, Colombia</p>
+        <p>📱 +57 320 829 4033 — **Caracas, Venezuela**</p>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
   <footer>
     <div class="container">
       <div class="footer-content">
         <div class="footer-brand">
           <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 16px;">
-            <div style="width: 48px; height: 48px; background: white; border-radius: 12px; display: flex; align-items: center; justify-content: center; padding: 8px; box-shadow: 0 4px 16px rgba(59, 130, 246, 0.3);">
+            <div class="logo-container-shadow" style="width: 48px; height: 48px; background: white; border-radius: 12px; display: flex; align-items: center; justify-content: center; padding: 8px;">
               <img src="./logosinfondo.png" alt="ClariFact Logo" style="width: 100%; height: 100%; object-fit: contain;">
             </div>
             <h4 style="margin: 0;">ClariFact</h4>
           </div>
-          <p>La forma más inteligente de digitalizar y organizar tus facturas. Ahorra tiempo, elimina errores y mantén todo bajo control desde tu celular.</p>
+          <p>La forma más inteligente de digitalizar, conciliar y organizar tus facturas. Ahorra tiempo, elimina errores y mantén todo bajo control desde tu celular.</p>
         </div>
 
         <div class="footer-links">
           <h5>Enlaces rápidos</h5>
           <a href="#productos">Productos</a>
+          <a href="#conciliacion">Conciliación Bancaria</a>
           <a href="#precios">Precios</a>
           <a href="#asistente">Asistente IA</a>
           <a href="#beneficios">Beneficios</a>
@@ -1585,7 +1679,7 @@
           <h5>Contacto</h5>
           <a href="mailto:administracion@clarifact.site">administracion@clarifact.site</a>
           <a href="tel:+573208294033">+57 320 829 4033</a>
-          <p style="color: rgba(255,255,255,0.7); margin-top: 12px;">Bogotá, Colombia</p>
+          <p style="color: rgba(255,255,255,0.7); margin-top: 12px;">**Caracas, Venezuela**</p>
         </div>
       </div>
 
