@@ -1122,6 +1122,28 @@
     /* ============================================
        RESPONSIVE
     ============================================ */
+
+    /* Tablets y pantallas medianas */
+    @media (max-width: 1024px) and (min-width: 769px) {
+      .pricing-grid-container {
+        gap: 30px;
+      }
+
+      .pricing-card {
+        flex-basis: calc(50% - 15px) !important;
+      }
+
+      .pricing-card:last-child {
+        flex-basis: 100% !important;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .pricing-card {
+        padding: 40px 32px;
+      }
+    }
+
     @media (max-width: 768px) {
       .hero h2 {
         font-size: 42px;
@@ -1147,7 +1169,7 @@
       .products-grid {
         grid-template-columns: 1fr;
       }
-      
+
       .steps-grid {
           grid-template-columns: 1fr;
       }
@@ -1163,6 +1185,54 @@
 
       .product-card {
         padding: 36px;
+      }
+
+      /* Responsive para Pricing Section */
+      .pricing-grid-container {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .pricing-card {
+        flex-basis: 100% !important;
+        padding: 32px 24px;
+        transform: none !important;
+      }
+
+      .pricing-card.featured {
+        transform: none !important;
+      }
+
+      .pricing-card:hover {
+        transform: translateY(-8px) !important;
+      }
+
+      .pricing-header h4 {
+        font-size: 24px;
+      }
+
+      .pricing-header .price {
+        font-size: 48px;
+      }
+
+      .pricing-header .price-period {
+        font-size: 16px;
+      }
+
+      .pricing-features li {
+        font-size: 15px;
+      }
+
+      .pricing-cta {
+        padding: 16px 32px;
+        font-size: 16px;
+      }
+
+      .pricing-badge {
+        top: 16px;
+        right: 16px;
+        font-size: 11px;
+        padding: 5px 12px;
       }
     }
   </style>
